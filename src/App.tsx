@@ -231,7 +231,7 @@ function App() {
     setBusy(true);
     const signup = values.get("intent") === "signup";
     const result = signup
-      ? await supabase.auth.signUp({ email, password, options: { data: { full_name: values.get("name"), username: values.get("username") } } })
+      ? await supabase.auth.signUp({ email, password, options: { data: { full_name: values.get("name"), username: values.get("username") }, emailRedirectTo: window.location.origin } })
       : await supabase.auth.signInWithPassword({ email, password });
     setBusy(false);
     if (result.error) { notify(result.error.message, "error"); return; }
