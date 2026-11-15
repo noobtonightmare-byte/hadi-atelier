@@ -1,0 +1,18 @@
+project_id = "uuqryctaczxombidrioe"
+
+[api]
+enabled = true
+port = 54321
+schemas = ["public", "storage", "graphql_public"]
+extra_search_path = ["public", "extensions"]
+max_rows = 1000
+
+[db]
+port = 54322
+major_version = 15
+
+[functions.admin-gate]
+verify_jwt = true
+
+[functions.order-notification]
+verify_jwt = true
